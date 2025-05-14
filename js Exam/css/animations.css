@@ -1,0 +1,171 @@
+/* Navigation Animations */
+.nav-content {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-nav.open .nav-content {
+    transform: translateX(0);
+}
+
+/* Loading Animation */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--secondary-color);
+    border-top-color: var(--overlay-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Card Animations */
+.meal-card {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.meal-card:hover {
+    transform: scale(1.05);
+}
+
+/* Form Validation Animations */
+.form-control.is-valid,
+.form-control.is-invalid {
+    transition: border-color 0.3s ease;
+}
+
+/* Page Transitions */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+}
+
+/* Card Animations */
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* Apply animations to elements */
+.main-content {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.meal-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.meal-overlay h3 {
+    animation: slideInUp 0.3s ease-in-out;
+}
+
+.meal-overlay p {
+    animation: slideInUp 0.3s ease-in-out 0.1s both;
+}
+
+.meal-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.meal-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.toggle-btn i {
+    transition: transform 0.3s;
+}
+
+.side-nav.open .toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* Loading Animation */
+.loading {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--light-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

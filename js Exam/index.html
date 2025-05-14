@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy - Recipe Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="side-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="logo.png" alt="Yummy Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="search">
+                    <i class="fas fa-search"></i> Search
+                </a>
+                <a href="#" class="nav-link" data-page="categories">
+                    <i class="fas fa-th-large"></i> Categories
+                </a>
+                <a href="#" class="nav-link" data-page="area">
+                    <i class="fas fa-globe"></i> Area
+                </a>
+                <a href="#" class="nav-link" data-page="ingredients">
+                    <i class="fas fa-mortar-pestle"></i> Ingredients
+                </a>
+                <a href="#" class="nav-link" data-page="random">
+                    <i class="fas fa-random"></i> Random Meals
+                </a>
+                <a href="#" class="nav-link" data-page="contact">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+            </div>
+            <div class="nav-footer">
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>Copyright © 2024 All Rights Reserved.</p>
+            </div>
+        </div>
+        <div class="toggle-btn">
+            <div class="dash-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container py-4">
+            <div id="search-section" class="mb-4 d-none">
+                <input id="searchByName" type="text" class="form-control mb-2" placeholder="Search by meal name">
+                <input id="searchByLetter" type="text" maxlength="1" class="form-control" placeholder="Search by first letter">
+            </div>
+
+            <div id="meals-container" class="row g-4">
+            </div>
+
+            <div id="contact-section" class="d-none">
+                <form id="contactForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input type="text" id="nameInput" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="email" id="emailInput" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" id="phoneInput" class="form-control" placeholder="Phone">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="number" id="ageInput" class="form-control" placeholder="Age">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="password" id="passwordInput" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="password" id="repasswordInput" class="form-control" placeholder="Re-enter Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" id="submitBtn" class="btn btn-primary w-100" disabled>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="recipeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">Recipe Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="recipeDetails">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

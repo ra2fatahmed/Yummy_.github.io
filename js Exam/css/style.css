@@ -1,0 +1,305 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color: #0D0D0D;
+    --secondary-color: #f9f6f6;
+    --overlay-color: rgba(214, 46, 51, 0.8);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    overflow-x: hidden; /* Only prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: var(--primary-color);
+    z-index: 999;
+    display: flex;
+    transform: translateX(-250px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.side-nav.open {
+    transform: translateX(0);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Toggle Button with Three Dashes */
+.toggle-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -40px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #222;
+}
+
+/* Improve spacing between nav links */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.nav-link {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Main Content - adjust margin */
+.main-content {
+    margin-left: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 20px;
+}
+
+.main-content.nav-open {
+    margin-left: 290px;
+}
+
+.nav-content {
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Toggle Button with Three Dashes */
+.toggle-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-icon {
+    width: 25px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dash-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animation for the dashes when menu is open */
+.side-nav.open .dash-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.side-nav.open .dash-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.side-nav.open .dash-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 80px;
+    transition: margin-left 0.3s;
+}
+
+/* Search Section */
+#search-section input {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: var(--overlay-color);
+    background-color: rgba(214, 46, 51, 0.1);
+    border-radius: 5px;
+}
+
+/* Meal Cards */
+.meal-card {
+    transition: transform 0.3s ease;
+    background-color: var(--primary-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.meal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.meal-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.meal-card:hover img {
+    transform: scale(1.05);
+}
+.meal-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color);
+    transition: top 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--secondary-color);
+    opacity: 0;
+}
+
+.meal-card:hover .meal-overlay {
+    top: 0;
+    opacity: 1;
+}
+
+/* Hide text initially */
+.meal-overlay h3, 
+.meal-overlay p {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+.meal-card:hover .meal-overlay h3,
+.meal-card:hover .meal-overlay p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Modal Styling */
+.modal-content {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--overlay-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Contact Form */
+#contact-section input {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+#contact-section input::placeholder {
+    color: rgba(249, 246, 246, 0.7);
+}
+
+.is-valid {
+    border-color: #198754 !important;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Center search and contact sections */
+#search-section {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#contact-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#contact-section form {
+    padding: 20px;
+}
+
+#contact-section .btn {
+    background-color: var(--overlay-color);
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+#contact-section .btn:hover:not([disabled]) {
+    background-color: #c62828;
+    transform: translateY(-3px);
+}
